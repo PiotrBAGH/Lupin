@@ -1,29 +1,18 @@
-# LUPIN SQL Interpreter
+# Interpreter SQL - Lupin
 
-## Opis projektu
-LUPIN to innowacyjny projekt interpretera SQL, który ma na celu mostkowanie między językiem Java a bazami danych SQL poprzez dynamiczne tworzenie zapytań SQL na podstawie analizy funkcji Java. 
+To prosta aplikacja napisana w języku Java, która pełni rolę interpretera SQL o nazwie "Lupin". Pozwala ona na analizę zapytań SQL i identyfikację różnych ich elementów, takich jak instrukcje, klauzule, typy danych i operatory.
 
-## Technologia
-LUPIN jest napisany w języku Java, co gwarantuje wysoką kompatybilność i wydajność w środowiskach baz danych. Interpreter korzysta z bibliotek takich jak `JavaParser` do analizy kodu źródłowego Java i generowania na jego podstawie odpowiednich instrukcji SQL.
+## Użycie
 
-## Wymagania
+1. **Klasa Tokens**: Definiuje wyrażenia regularne dla słów kluczowych SQL, typów danych, operatorów, symboli, operatorów logicznych, słów narzędziowych i funkcji agregujących.
 
+2. **Klasa Grammar**: Zawiera główną logikę analizy zapytań SQL.
+   - Metoda `parseQuery` dzieli wejściowe zapytanie SQL na tokeny, używając białych znaków jako separatora, a następnie identyfikuje typ każdego tokena.
+   - Na podstawie zidentyfikowanego typu tokena, drukuje odpowiadające mu informacje, takie jak instrukcje SQL, klauzule, typy danych i operatory.
 
-## Funkcje
-- **Analiza Kodu Java:** Interpreter czyta i analizuje funkcje zdefiniowane w języku Java.
-- **Generowanie Zapytań SQL:** Na podstawie analizy kodu, LUPIN generuje zapytania SQL, które odpowiadają logice zaimplementowanej w funkcjach Java.
-- **Wsparcie dla Różnych Dialektów SQL:** LUPIN może być konfigurowany do współpracy z różnymi systemami zarządzania bazami danych, takimi jak MySQL, PostgreSQL, Oracle itp.
-- **Integracja z Istniejącymi Projektami Java:** Możliwość łatwej integracji z istniejącymi projektami Java bez potrzeby modyfikacji istniejącego kodu źródłowego.
+## Przykład
 
-## Jak to działa?
-1. **Definicja Funkcji Java:** Użytkownik definiuje funkcje w Java, które opisują logikę biznesową.
-2. **Analiza Funkcji:** LUPIN analizuje te funkcje, wyodrębniając niezbędne operacje i logikę.
-3. **Generowanie Zapytań SQL:** Na podstawie wyodrębnionej logiki, interpreter generuje zapytania SQL.
+Dla poniższego zapytania SQL:
 
-## Przykłady Użycia
-```java
-public class Example {
-    public List<Customer> findCustomersWithOverduePayments() {
-        // Java method logic here
-    }
-}
+```sql
+SELECT kolumna1, kolumna2 FROM tabela1 WHERE warunek = true;
