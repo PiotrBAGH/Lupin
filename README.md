@@ -1,6 +1,6 @@
 # Interpreter SQL - Lupin
 
-To prosta aplikacja napisana w języku Java, która pełni rolę interpretera SQL o nazwie "Lupin". Pozwala ona na analizę zapytań SQL i identyfikację różnych ich elementów, takich jak instrukcje, klauzule, typy danych i operatory.
+To prosta aplikacja napisana w języku Java, która pełni rolę interpretera SQL o nazwie "Lupin". Pozwala ona na analizę zapytań SQL i identyfikację różnych ich elementów, takich jak instrukcje, symbole, typy danych i operatory.
 
 ## Użycie
 
