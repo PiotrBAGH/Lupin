@@ -59,13 +59,11 @@ public class Grammar {
                 System.out.println("VARCHAR data type");
             } else if (matches(token, Tokens.FLOAT)) {
                 System.out.println("FLOAT data type");
-            }
-            else if (matches(token, Tokens.EQUALS)) {
+            } else if (matches(token, Tokens.EQUALS)) {
                 System.out.println("= data type");
-            }
-            else {
+            } else {
                 System.out.println("Unknown token: " + token);
-            }
+            }            
         }
     }
 
