@@ -1,0 +1,55 @@
+// Spis tokenów dla interpretera SQL LUPIN
+
+SELECT : 'SELECT';
+FROM : 'FROM';
+WHERE : 'WHERE';
+AND : 'AND';
+OR : 'OR';
+IN : 'IN';
+NOT : 'NOT';
+NULL : 'NULL';
+AS : 'AS';
+INSERT : 'INSERT';
+INTO : 'INTO';
+VALUES : 'VALUES';
+UPDATE : 'UPDATE';
+SET : 'SET';
+DELETE : 'DELETE';
+CREATE : 'CREATE';
+TABLE : 'TABLE';
+ALTER : 'ALTER';
+DROP : 'DROP';
+PRIMARY_KEY : 'PRIMARY KEY';
+FOREIGN_KEY : 'FOREIGN KEY';
+REFERENCES : 'REFERENCES';
+DISTINCT : 'DISTINCT';
+ORDER_BY : 'ORDER BY';
+GROUP_BY : 'GROUP BY';
+HAVING : 'HAVING';
+ASC : 'ASC';
+DESC : 'DESC';
+ALL : 'ALL';
+ANY : 'ANY';
+BETWEEN : 'BETWEEN';
+JOIN : 'JOIN';
+INNER : 'INNER';
+LEFT : 'LEFT';
+RIGHT : 'RIGHT';
+OUTER : 'OUTER';
+ON : 'ON';
+USING : 'USING';
+UNION : 'UNION';
+ALL : 'ALL';
+COUNT : 'COUNT';
+SUM : 'SUM';
+AVG : 'AVG';
+MIN : 'MIN';
+MAX : 'MAX';
+LIKE : 'LIKE';
+IS : 'IS';
+
+// Inne tokeny
+ID : [a-zA-Z_][a-zA-Z_0-9]*;
+NUMBER : [0-9]+('.'[0-9]+)?;
+STRING : '\'' (~'\'' | '\'\'' | '\\\'')* '\'';
+WS : [ \t\r\n]+ -> skip;
