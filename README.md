@@ -1,18 +1,27 @@
-# Interpreter SQL - Lupin
+# Prosty Interpreter SQL z wykorzystaniem ANTLR
 
-To prosta aplikacja napisana w języku Java, która pełni rolę interpretera SQL o nazwie "Lupin". Pozwala ona na analizę zapytań SQL i identyfikację różnych ich elementów, takich jak instrukcje, symbole, typy danych i operatory.
+## Przegląd
+Projekt ten dostarcza prosty interpreter SQL zaimplementowany za pomocą ANTLR4, zaprojektowany do współpracy z Javą. Obsługuje podstawowe operacje SQL, takie jak zapytania SELECT, dodawanie rekordów poprzez INSERT, usuwanie rekordów za pomocą DELETE, tworzenie tabel za pomocą CREATE TABLE oraz ich usuwanie z użyciem DROP TABLE. Gramatyka pozwala na analizę i zrozumienie zapytań SQL w strukturyzowany sposób.
+
+## Funkcje
+- **Zapytania SELECT** z opcjonalnymi klauzulami WHERE.
+- **INSERT INTO** do dodawania nowych rekordów.
+- **DELETE FROM** z opcjonalnymi klauzulami WHERE do usuwania rekordów.
+- **CREATE TABLE** do tworzenia nowych tabel.
+- **DROP TABLE** do usuwania tabel.
+
+## Wymagania
+- Java 8 lub nowsza
+- ANTLR 4.8 lub nowszy
+
+## Konfiguracja
+Aby uruchomić ten projekt, musisz zainstalować ANTLR4 jako narzędzie generowania parserów i lexerów. Dodatkowo, jeśli używasz środowiska IDE takiego jak IntelliJ IDEA lub Eclipse, zaleca się zainstalowanie odpowiednich wtyczek ANTLR4.
 
 ## Użycie
+### Kompilacja
+Uruchom skrypt kompilacji (zazwyczaj `build.sh` lub `build.bat` w zależności od Twojego systemu operacyjnego) w celu wygenerowania potrzebnych klas Java z plików `.g4`.
 
-1. **Klasa Tokens**: Definiuje wyrażenia regularne dla słów kluczowych SQL, typów danych, operatorów, symboli, operatorów logicznych, słów narzędziowych i funkcji agregujących.
-
-2. **Klasa Grammar**: Zawiera główną logikę analizy zapytań SQL.
-   - Metoda `parseQuery` dzieli wejściowe zapytanie SQL na tokeny, używając białych znaków jako separatora, a następnie identyfikuje typ każdego tokena.
-   - Na podstawie zidentyfikowanego typu tokena, drukuje odpowiadające mu informacje, takie jak instrukcje SQL, klauzule, typy danych i operatory.
-
-## Przykład
-
-Dla poniższego zapytania SQL:
-
+### Przykładowe Użycie
+Aby przetestować parser, możesz uruchomić przygotowany skrypt Java, który analizuje przykładowe zapytanie SQL i wyświetla wynikowe drzewo parsowania. Przykład zapytania:
 ```sql
-SELECT kolumna1, kolumna2 FROM tabela1 WHERE warunek = true;
+SELECT * FROM tabela WHERE kolumna = 'wartość';
