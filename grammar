@@ -1,9 +1,7 @@
-grammar Sql;
+grammar gramatyka;
 
 // Reguła startowa, z której parser rozpoczyna przetwarzanie.
-start
-    : sqlStatement+
-    ;
+start: sqlStatement+;
 
 // Obsługa różnych instrukcji SQL.
 sqlStatement
@@ -44,9 +42,15 @@ columnDefinitionList
     : columnDefinition (',' columnDefinition)*
     ;
 
-// Definicja pojedynczej kolumny, która może zawierać klucz główny.
+// Definicja pojedynczej kolumny, która może zawierać klucz główny, NOT NULL i DEFAULT.
 columnDefinition
-    : columnName dataType (PRIMARY_KEY)?
+    : columnName dataType (columnConstraint)*
+    ;
+
+columnConstraint
+    : PRIMARY_KEY
+    | NOT_NULL
+    | DEFAULT value
     ;
 
 // Lista nazw kolumn używanych w INSERT INTO.
@@ -77,7 +81,7 @@ columnName
 
 // Lista selekcji kolumn w SELECT, może być '*' dla wszystkich kolumn.
 selectList
-    : '*' 
+    : '*'
     | columnNameList
     ;
 
@@ -88,6 +92,7 @@ dataType
     | BOOLEAN
     | DATE
     | FLOAT
+    | DECIMAL '(' NUMERIC_LITERAL ',' NUMERIC_LITERAL ')'
     ;
 
 // Wyrażenie, np. dla klauzuli WHERE, obsługuje operatory logiczne i porównania.
@@ -95,9 +100,10 @@ expression
     : term ((AND | OR) term)*
     ;
 
-// Element wyrażenia, może być operatorem porównania między faktorami.
+// Element wyrażenia, może być operatorem porównania między faktorami lub sprawdzeniem NULL.
 term
     : factor ((EQUAL | NOT_EQUAL | GREATER_THAN | LESS_THAN | GREATER_EQUAL | LESS_EQUAL) factor)?
+    | factor IS (NOT)? NULL
     ;
 
 // Podstawowy element wyrażenia, może być identyfikatorem, literałem lub innym wyrażeniem.

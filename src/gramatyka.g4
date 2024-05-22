@@ -42,9 +42,15 @@ columnDefinitionList
     : columnDefinition (',' columnDefinition)*
     ;
 
-// Definicja pojedynczej kolumny, która może zawierać klucz główny.
+// Definicja pojedynczej kolumny, która może zawierać klucz główny, NOT NULL i DEFAULT.
 columnDefinition
-    : columnName dataType (PRIMARY_KEY)?
+    : columnName dataType (columnConstraint)*
+    ;
+
+columnConstraint
+    : PRIMARY_KEY
+    | NOT_NULL
+    | DEFAULT value
     ;
 
 // Lista nazw kolumn używanych w INSERT INTO.
@@ -86,6 +92,7 @@ dataType
     | BOOLEAN
     | DATE
     | FLOAT
+    | DECIMAL '(' NUMERIC_LITERAL ',' NUMERIC_LITERAL ')'
     ;
 
 // Wyrażenie, np. dla klauzuli WHERE, obsługuje operatory logiczne i porównania.
@@ -93,9 +100,10 @@ expression
     : term ((AND | OR) term)*
     ;
 
-// Element wyrażenia, może być operatorem porównania między faktorami.
+// Element wyrażenia, może być operatorem porównania między faktorami lub sprawdzeniem NULL.
 term
     : factor ((EQUAL | NOT_EQUAL | GREATER_THAN | LESS_THAN | GREATER_EQUAL | LESS_EQUAL) factor)?
+    | factor IS (NOT)? NULL
     ;
 
 // Podstawowy element wyrażenia, może być identyfikatorem, literałem lub innym wyrażeniem.
@@ -105,7 +113,6 @@ factor
     | NUMERIC_LITERAL
     | '(' expression ')'
     ;
-
 
 // Spis tokenów dla interpretera SQL LUPIN
 SELECT : 'SELECT';
@@ -123,6 +130,8 @@ CREATE : 'CREATE';
 TABLE : 'TABLE';
 DROP : 'DROP';
 PRIMARY_KEY : 'PRIMARY KEY';
+NOT_NULL : 'NOT NULL';
+DEFAULT : 'DEFAULT';
 SEMICOLON : ';'; // Dodano, aby obsłużyć średnik na końcu instrukcji
 EQUAL : '=';
 NOT_EQUAL : '<>' | '!=';
@@ -130,6 +139,9 @@ GREATER_THAN : '>';
 LESS_THAN : '<';
 GREATER_EQUAL : '>=';
 LESS_EQUAL : '<=';
+IS : 'IS';
+NOT : 'NOT';
+NULL : 'NULL';
 
 // Typy danych
 INT : 'INT';
@@ -137,6 +149,7 @@ VARCHAR : 'VARCHAR';
 BOOLEAN : 'BOOLEAN';
 DATE : 'DATE';
 FLOAT : 'FLOAT';
+DECIMAL : 'DECIMAL';
 
 // Inne używane tokeny
 IDENTIFIER : [a-zA-Z_][a-zA-Z_0-9]*;
