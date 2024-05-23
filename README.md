@@ -39,7 +39,8 @@ INSERT INTO employees (id, name, position) VALUES
 DROP TABLE employees;
 ```
 ## Przykładowe drzewa parsowania
-
+![Drzewo parsowania1](parseTree3.png)
+![Drzewo parsowania1](Drop table.png)
 ![Drzewo parsowania ](images/parseTree1.png)
 
 
