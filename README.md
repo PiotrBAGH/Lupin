@@ -1,7 +1,7 @@
 # Prosty Interpreter SQL z wykorzystaniem ANTLR
 
 ## Przegląd
-Projekt ten dostarcza prosty interpreter SQL zaimplementowany za pomocą ANTLR4, zaprojektowany do współpracy z Javą. Obsługuje podstawowe operacje SQL, takie jak zapytania SELECT, dodawanie rekordów poprzez INSERT, usuwanie rekordów za pomocą DELETE, tworzenie tabel za pomocą CREATE TABLE oraz ich usuwanie z użyciem DROP TABLE. Gramatyka pozwala na analizę i zrozumienie zapytań SQL w strukturyzowany sposób. Projekt pozwala na generowania drzewa Parse tree.
+Projekt ten dostarcza prosty interpreter **SQL** zaimplementowany za pomocą **ANTLR4**, zaprojektowany do współpracy z **Javą**. Obsługuje podstawowe operacje **SQL**, takie jak zapytania **SELECT**, dodawanie rekordów poprzez **INSERT**, usuwanie rekordów za pomocą **DELETE**, tworzenie tabel za pomocą **CREATE TABLE** oraz ich usuwanie z użyciem **DROP TABLE**. Gramatyka pozwala na analizę i zrozumienie zapytań **SQL** w strukturyzowany sposób. Projekt pozwala na generowanie drzewa parsowania.
 
 ## Funkcje
 - **Zapytania SELECT** z opcjonalnymi klauzulami WHERE.
