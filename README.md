@@ -23,7 +23,7 @@ Aby uruchomić program należy najpierw sklonować repozytorium za pomocą syste
 Kolejnym krokiem jest otworzenie projektu w środowisku IntelliJ IDEA. Kolejnym krokiem jest zainstalowanie wtyczki ANTL v4. Aby to zrobić w pierwszym kroku należy przejść do sekcji File/settings/plugins.
 Po zainstalowaniu wtyczki należy przejść do sekcji Tools i ustawić ścieżkę do której ANTLR będzie generował swoje pliki.
 
-### Przykładowe Użycie
+### Przykładowe Użycie Drzewa parsowania
 Aby przetestować parser, należy otworzyć plik gramatyka.g4 i otworzyć opcję "GENERATE ANTLR RECOGNIZER", po wykonaniu tego kroku należy wpisać przykładowe zapytanie SQL : 
 ```sql
 SELECT * FROM tabela WHERE kolumna = 'wartość';
@@ -43,4 +43,5 @@ DROP TABLE employees;
 ![Drzewo parsowania2](images/droptable.png)
 ![Drzewo parsowania ](images/parseTree1.png)
 
-
+### Przykładowe Użycie interpretera
+Aby sprawdzić użycie interpretera należy wprowadzić zapytanie SQL i oczekiwać na wynik.
