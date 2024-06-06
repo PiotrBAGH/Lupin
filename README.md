@@ -47,3 +47,7 @@ DROP TABLE employees;
 
 ### Przykładowe Użycie interpretera
 Aby sprawdzić użycie interpretera należy wprowadzić zapytanie SQL i oczekiwać na wynik.
+![Przyklad1](images/select.png)
+### Obsługa błędów
+Obprócz klasyczej **obsługi błędów** dostarczonej przez **ANTLR** wporwadziliśmy do implementacji własną implementację obsługi błędów.
+![Przyklad2](images/przyklad.png)
